@@ -1,4 +1,4 @@
-## Log File Analyzer
+# Log File Analyzer
 Parse server logs to find most visited pages, IP addresses, or error counts.
 Skills: grep, awk, sort, uniq.
 
