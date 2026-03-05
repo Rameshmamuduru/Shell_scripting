@@ -19,6 +19,11 @@ A log file analyzer can:
   * `grep` → find specific patterns
   * `awk` / `sed` → parse and extract fields
   * `GoAccess` → analyze web server logs with reports
+  ```
+  sudo apt install goaccess -y
+  goaccess /var/log/nginx/access.log -o report.html --log-format=COMBINED
+  tail -f /var/log/nginx/access.log | goaccess - --log-format=COMBINED --date-format=%d/%b/%Y --time-format=%H:%M:%S
+  ```
   * `logwatch` → daily summary of system logs
 
 * **GUI / advanced tools**:
