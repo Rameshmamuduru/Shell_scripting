@@ -81,6 +81,27 @@ else
 fi
 ```
 
+# Logs Rotation
+
+## Manual
+```
+#!/bin/bash
+
+
+log_file=/home/ubuntu/file1.txt
+backup_dir=/tmp/backup
+
+mkdir -p $backup_dir
+TIMESTAMP=$(date +"%Y%m%d_%H%M%S")
+cp -r "$log_file" "$backup_dir/myapp_$TIMESTAMP.log"
+> "$log_file"
+```
+## Using logrotate tool
+```
+sudo apt update
+sudo apt install logrotate -y   # Ubuntu/Debian
+```
+
 # Backup Script
 Compress and back up a folder to a specified location with a timestamp.
 Skills: tar, gzip, date formatting.
