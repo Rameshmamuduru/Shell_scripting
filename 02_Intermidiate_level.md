@@ -25,6 +25,12 @@ A log file analyzer can:
   tail -f /var/log/nginx/access.log | goaccess - --log-format=COMBINED --date-format=%d/%b/%Y --time-format=%H:%M:%S
   ```
   * `logwatch` → daily summary of system logs
+  ```
+  sudo apt update
+  sudo apt install logwatch -y
+  sudo logwatch --detail High --range today --service all
+  sudo logwatch --logfile /var/log/nginx/access.log --detail High --range today --service all
+```
 
 * **GUI / advanced tools**:
 
