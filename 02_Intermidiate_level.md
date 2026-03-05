@@ -30,7 +30,7 @@ A log file analyzer can:
   sudo apt install logwatch -y
   sudo logwatch --detail High --range today --service all
   sudo logwatch --logfile /var/log/nginx/access.log --detail High --range today --service all
-```
+  ```
 
 * **GUI / advanced tools**:
 
