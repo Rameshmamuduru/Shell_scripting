@@ -55,6 +55,30 @@ root@dev:/home/ubuntu#
 | 0.0 hi  | CPU handling **hardware interrupts**            |
 | 0.2 si  | CPU handling **software interrupts**            |
 | 0.0 st  | CPU stolen by **virtualization**                |
+
+
+#!/bin/bash
+
+Disk_thershold=80
+CPU_thershold=50
+
+DISK_USAGE=$(df -h | awk '$6=="/" {print $5}' | sed 's/%//')
+echo "Current Disk Usage: $DISK_USAGE%"
+CPU_USAGE=$(top -bn1 | grep "Cpu(s)" | awk '{print 100-$8}')
+echo "Current Disk Usage: $CPU_USAGE%"
+
+if [ "$DISK_USAGE" -gt "$Disk_thershold" ]; then
+        echo "WARNING: Disk Usage Exceeds: $Disk_thershold%"
+else
+        echo "Disk Usage is Normal"
+fi
+
+CPU_INT=${CPU_USAGE%.*}
+if [ "$CPU_INT" -gt "$CPU_thershold" ]; then
+        echo "WARNING: Disk Usage Exceeds: $CPU_thershold%"
+else
+        echo "Disk Usage is Normal"
+fi
 ```
 
 # Backup Script
